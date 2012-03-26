@@ -39,7 +39,8 @@ syn region crDmesgCRFunc start="\]\s*[a-zA-Z_]\+:\s\s" end="$" contains=crDmesgO
 syn match crDmesgPID "\[\s*\d\+:"ms=s+1,me=e-1 contained
 syn match crDmesgPIDns ":\s*\d\+:"ms=s+1,me=e-1 contained
 syn match crDmesgDbgLine ":c/r:\s*\d\+\]"ms=s+1,me=e-1 contained
-syn region crDmesgInfo start="\]\s\+\["ms=s+1 end="\]"me=e-1 contains=crDmesgPID,crDmesgPIDns,crDmesgDbgLine,crDmesgErrMsg oneline transparent
+syn match crDmesgMsgPos "\[pos \d\+\]"ms=s+1,me=e-1 contained
+syn region crDmesgInfo start="\]\s\+\["ms=s+1 end="\]"me=e-1 contains=crDmesgPID,crDmesgPIDns,crDmesgDbgLine,crDmesgMsgPos,crDmesgErrMsg oneline transparent
 
 syn match crDmesgTS "\[\s*\d\+\.\d\+\s*\]"ms=s+1,me=e-1 contained
 syn region crDmesgLvlDebug start="^<7>" end="\]"me=e-1 contains=crDmesgTS oneline
@@ -94,8 +95,9 @@ if version >= 508 || !exists("did_crDmesg_syntax_inits")
 	HiLink crDmesgLvlWarn Todo
 	HiLink crDmesgLvlErr Error
 	HiLink crDmesgXNUFunc Normal
-	SynColor crDmesgErrMsg guibg=firebrick3 guifg=Black gui=bold,italic
-	SynColor crDmesgMsg guibg=#000044 guifg=#5555ff gui=bold
+	SynColor crDmesgErrMsg guibg=firebrick3 ctermbg=Red guifg=Black ctermfg=Black gui=bold,italic
+	SynColor crDmesgMsg guibg=#000044 guifg=#5555ff ctermfg=Blue gui=bold
+	SynColor crDmesgMsgPos guibg=#000044 guifg=#5555ff ctermfg=Blue gui=bold
 
 	delcommand HiLink
 	delcommand SynColor

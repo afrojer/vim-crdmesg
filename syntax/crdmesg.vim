@@ -39,7 +39,7 @@ syn region crDmesgCRFunc start="\]\s*[a-zA-Z_]\+:\s\s" end="$" contains=crDmesgO
 syn match crDmesgPID "\[\s*\d\+:"ms=s+1,me=e-1 contained
 syn match crDmesgPIDns ":\s*\d\+:"ms=s+1,me=e-1 contained
 syn match crDmesgDbgLine ":c/r:\s*\d\+\]"ms=s+1,me=e-1 contained
-syn match crDmesgMsgPos "\[pos \d\+\]"ms=s+1,me=e-1 contained
+syn match crDmesgMsgPos "\[pos \s*\d\+\]"ms=s+1,me=e-1 contained
 syn region crDmesgInfo start="\]\s\+\["ms=s+1 end="\]"me=e-1 contains=crDmesgPID,crDmesgPIDns,crDmesgDbgLine,crDmesgMsgPos,crDmesgErrMsg oneline transparent
 
 syn match crDmesgTS "\[\s*\d\+\.\d\+\s*\]"ms=s+1,me=e-1 contained
@@ -49,10 +49,9 @@ syn region crDmesgLvlInfo start="^<5>" end="\]"me=e-1 contains=crDmesgTS oneline
 syn region crDmesgLvlWarn start="^<4>" end="\]"me=e-1 contains=crDmesgTS oneline
 syn region crDmesgLvlErr start="^<3>" end="\]"me=e-1 contains=crDmesgTS oneline
 
-syn match crDmesgErrMsg "\[err \-\d\+\]\[pos \d\+\]\[\s*E\s*@\s*\d\+\]"ms=s+1,me=e-1
+syn match crDmesgErrMsg "\[err \s*\-\d\+\]\[pos \s*\d\+\]\[\s*E\s*@\s*\d\+\]"ms=s+1,me=e-1
 syn match crDmesgMsg " c/r:\s*[^\s0-9:][^:]\+:"me=e-1
 
-"syn match crDmesgNIsys "!! IOS[_]ni[_]syscall:"
 "syn region crDmesgComment start="/\*" end="\*/" oneline
 
 " Define the default highlighting

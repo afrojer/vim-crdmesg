@@ -34,7 +34,7 @@ syn match crDmesgSpecialFmtS "\[str [^\]]\+\]" contained
 syn match crDmesgSpecialFmtT "\[pid \-*\d\+ tsk [^\]]\+\]" contained
 syn region crDmesgVerbosed start="(" end=")" matchgroup=Normal contained oneline
 
-syn region crDmesgCRFunc start="\]\s*[a-zA-Z_]\+:\s\s" end="$" contains=crDmesgOperator,crDmesgNumberRHS,crDmesgSpecialChar,crDmesgConstant,crDmesgAssign,crDmesgFuncName,crDmesgVerbosed,crDmesgSpecialFmtO,crDmesgSpecialFmtP,crDmesgSpecialFmtV,crDmesgSpecialFmtS,crDmesgSpecialFmtT oneline transparent
+syn region crDmesgCRFunc start="\]\s*[a-zA-Z_]\+:\s\s" end="$" contains=crDmesgOperator,crDmesgNumberRHS,crDmesgSpecialChar,crDmesgString,crDmesgConstant,crDmesgAssign,crDmesgFuncName,crDmesgVerbosed,crDmesgSpecialFmtO,crDmesgSpecialFmtP,crDmesgSpecialFmtV,crDmesgSpecialFmtS,crDmesgSpecialFmtT oneline transparent
 
 syn match crDmesgPID "\[\s*\d\+:"ms=s+1,me=e-1 contained
 syn match crDmesgPIDns ":\s*\d\+:"ms=s+1,me=e-1 contained
